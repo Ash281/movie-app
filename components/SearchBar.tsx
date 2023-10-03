@@ -29,9 +29,9 @@ const SearchBar = () => {
         router.push(newPathname);
     }
 
-    /* useEffect(() => {
+    useEffect(() => {
         handleSearch();
-    }, [searchTerm]) */ 
+    }, [searchTerm]) 
     /* with the use effect hook, every time search term changes
     the handleSearch() method is executed */
 
