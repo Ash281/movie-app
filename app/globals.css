@@ -12,7 +12,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 50, 90;
   }
 }
 
@@ -24,4 +24,236 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.sidebar {
+  height: 100vh;
+  top: 0px;
+  width: 200px;
+  position: sticky;
+  background-color: #343739;
+}
+
+.search { /* settings for search bar */
+  width: 30%;
+  position: relative;
+  /* margin: 4rem 0 2rem; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem 1.75rem;
+  border-radius: 1rem;
+  background: #1f2123;
+  /* -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527; */
+}
+
+.search input { /* settings for text inside search bar */
+  flex: 1;
+  border: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+
+  outline: none;
+  color: #a1a1a1;
+  background: #1f2123;
+}
+
+.searchicon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.container { /* settings for container with movies */
+  width: 100%;
+  margin-top: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie { /* settings for each movie item */
+  width: 310px;
+  height: 460px;
+  margin: 1.5rem;
+
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(85, 15, 15, 0.1);
+}
+
+.movie div:nth-of-type(1) { /* spacing for every movie i.e n=1 */
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  font-size: large;
+  font-family: var(--font-raleway);
+  color: #f9d3b4;
+}
+
+.movie:hover { /* styling for when movie is hovered over */
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
+}
+
+.movie div:nth-of-type(2) { /* for every 2nd element (n=2) i.e picture */
+  width: 100%;
+  height: 100%;
+}
+
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.movie div:nth-of-type(3) { /* for every 3rd element i.e text with title */
+  z-index: 2;
+  background-color: #343739;
+  padding: 16px 24px 24px 24px;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.movie div:nth-of-type(3) span { /* span of h3 i.e type of film */
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.movie div:nth-of-type(3) h3 { /* text in h3 i.e movie title */
+  margin-top: 5px;
+  font-family: "Raleway Slab", sans-serif;
+  color: #cebecb;
+}
+
+.movie:hover div:nth-of-type(2) { /* picture becomes transparent */
+  height: 100%;
+  opacity: 0.3;
+}
+
+.movie:hover div:nth-of-type(3) { /* bottom part becomes transparent */
+  background-color: transparent;
+}
+
+.movie:hover div:nth-of-type(1) { /* hover text to show the year */
+  opacity: 1;
+  font-weight: bold;
+}
+
+.movie-details-poster {
+  display: inline-block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #b1c2c1;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+}
+
+/* General sidebar styles, padding for text */
+.bm-menu {
+  position: fixed; /* Add this line to position the menu */
+  top: 0; /* Adjust the top value according to your desired positioning */
+  left: 0; /* Adjust the left value according to your desired positioning */
+  width: 300px; /* Set the width of the menu */
+  height: 100%; /* Set the height of the menu */
+  background:  #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+
+  color: #d1d1d1;
+  margin-bottom: 10px;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: #ffffff;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
 }
