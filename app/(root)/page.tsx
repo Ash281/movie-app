@@ -4,8 +4,10 @@ import { MovieProps } from '@/types'
 import { fetchMovies } from '@/utils'
 import { fetchTrending } from '@/utils'
 
+import { SignedIn } from '@clerk/nextjs'
+
 const Home = async ({ searchParams }) => {
-  
+
   const movies = await fetchMovies({
     title: searchParams.search
   });
@@ -22,8 +24,10 @@ const Home = async ({ searchParams }) => {
   }
 
   return (
+    <SignedIn>
+    
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
+        
         {searchTermExists() ? <div className="text-lg font-semibold animate-fade-in">
         
         {movies?.length > 0 ? (
@@ -47,6 +51,7 @@ const Home = async ({ searchParams }) => {
         Trending
       </div>}
     </main>
+    </SignedIn>
   )
 }
 

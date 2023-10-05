@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import SideBar from './SideBar';
 import SearchBar from './SearchBar';
 import Header from './Header';
+import { UserButton } from '@clerk/nextjs';
 
 const NavBar = () => {
   const [isClient, setIsClient] = useState(false);
@@ -20,7 +21,7 @@ const NavBar = () => {
           <Header />
           <SideBar />
           <SearchBar />
-          <div className='fixed bg-gray-500 rounded-lg font-semibold text-white text-center p-4 right-9'>Log in</div>
+          <UserButton />
         </div>
       )}
     </>
