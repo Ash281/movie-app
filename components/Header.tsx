@@ -1,16 +1,16 @@
-"use-client"
+"use client"
 
-import React from 'react'
+import React from 'react';
 
 const Header = () => {
   return (
-    <a className="text-5xl font-semibold opacity-50 
-      bg-gradient-to-r from-blue-600 via-indigo-400 to-gray-400
-      inline-block text-transparent bg-clip-text"
-      href='/'>
+    <a href="/" className="text-5xl font-semibold
+     bg-white inline-block text-transparent bg-clip-text font-quicksand-300">
+      <span>
         MoviesForYou
-      </a>
-  )
-}
+      </span>
+    </a>
+  );
+};
 
-export default Header
+export default Header;

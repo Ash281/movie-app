@@ -43,7 +43,7 @@ const SearchBar = () => {
   
     return (
         <div className="search">
-            
+            <div className='rounded-lg bg-gradient-to-r from-purple-900 to-fuchsia-700 absolute inset-0 blur-md -z-10'></div>
             <input
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

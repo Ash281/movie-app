@@ -25,8 +25,9 @@ const Home = async ({ searchParams }) => {
 
   return (
     <SignedIn>
-    
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col 
+    items-center justify-between p-24
+    animate-fade-in font-quicksand-300">
         
         {searchTermExists() ? <div className="text-lg font-semibold animate-fade-in">
         

@@ -12,16 +12,21 @@ const NavBar = () => {
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+  }, []); //using this to check if the component has rendered on the client side yet
 
   return (
     <>
       {isClient && (
-        <div className="flex min-w-screen h-24 flex-row pl-36 pt-5 pb-5 space-x-10 bg-slate-800">
-          <Header />
+        <div className="flex min-w-screen h-24 
+        flex-row pl-36 pt-5 pb-5 space-x-10 bg-zinc-800
+        animate-fade-in relative">
+          <div className='rounded-lg bg-gradient-to-r from-slate-900 to-slate-600 absolute inset-0 blur-md -z-10'></div>
           <SideBar />
           <SearchBar />
-          <UserButton />
+          <Header />
+          <div className='p-3 x-5'>
+            <UserButton />
+          </div> 
         </div>
       )}
     </>
