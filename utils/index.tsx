@@ -20,3 +20,7 @@ export async function fetchMovieDetails(id: string) {
 export async function fetchTrending() {
   const response = await fetch(`${API_URL}&s=`)
 }
+
+export async function updateAPI() {
+  const backendAPIUrl
+}

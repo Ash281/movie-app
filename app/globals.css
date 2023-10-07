@@ -35,6 +35,21 @@ body {
   background-color: #343739;
 }
 
+.heart {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  z-index: 10;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  color: #787878;
+}
+
+.heart.expanded {
+  color: red;
+}
+
 .search { /* settings for search bar */
   width: 30%;
   position: relative;
