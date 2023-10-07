@@ -21,10 +21,10 @@ const NavBar = () => {
         flex-row pl-36 pt-5 pb-5 space-x-10 bg-zinc-800
         animate-fade-in relative">
           <div className='rounded-lg bg-gradient-to-r from-slate-900 to-slate-600 absolute inset-0 blur-md -z-10'></div>
+          <Header />
           <SideBar />
           <SearchBar />
-          <Header />
-          <div className='p-3 x-5'>
+          <div className='p-3'>
             <UserButton />
           </div> 
         </div>

@@ -4,9 +4,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <a href="/" className="text-5xl font-semibold
-     bg-white inline-block text-transparent bg-clip-text font-quicksand-300">
-      <span>
+    <a href="/" className="text-5xl font-semibold relative">
+      <span className="text-transparent bg-white bg-clip-text font-quicksand-300">
         MoviesForYou
       </span>
     </a>
