@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+/* HEADER COMPONENT */
 const Header = () => {
   return (
     <a href="/" className="text-5xl font-semibold relative">

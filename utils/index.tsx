@@ -1,5 +1,7 @@
 import { SearchProps } from "@/types";
+import axios from 'axios';
 
+/* API UTILS */
 const API_URL = "http://www.omdbapi.com/?apikey=1730c32d";
 
 export async function fetchMovies(filters: SearchProps) {
@@ -21,6 +23,8 @@ export async function fetchTrending() {
   const response = await fetch(`${API_URL}&s=`)
 }
 
-export async function updateAPI() {
-  const backendAPIUrl
-}
+//export async function updateAPI(movieId {
+//  const apiRoute = `./app/api/favourites/${movieId}/route`;
+//
+//  axios.post(apiRoute, { id: })
+//}

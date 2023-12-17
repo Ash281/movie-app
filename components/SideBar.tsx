@@ -1,5 +1,6 @@
 "use client"
 
+/* SIDEBAR COMPONENT */
 import React, { useEffect, useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 

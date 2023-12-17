@@ -9,8 +9,9 @@ import Heart from 'react-animated-heart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart} from "@fortawesome/free-solid-svg-icons"
 
+/* MOVIE CARD COMPONENT */
 interface MovieCardProps {
-    movie: MovieProps;
+  movie: MovieProps;
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
@@ -35,31 +36,31 @@ const MovieCard = ({ movie }: MovieCardProps) => {
  
   const {imdbID, Year, Poster, Type, Title} = movie;
     return (
-      <div className='movie' key={imdbID}>
+    <div className='movie' key={imdbID}>
         
-        <button className="movie-button"
-          onClick={()=>handleMovieClick(imdbID)}
-        >
+      <button className="movie-button"
+        onClick={()=>handleMovieClick(imdbID)}
+      >
 
-          <FontAwesomeIcon className={`heart ${isLiked ? 'expanded' : ''}`}
-          icon={faHeart}
-          onClick={(e) => {e.stopPropagation(); handleHeartClick()}}
-          ></FontAwesomeIcon>
+        <FontAwesomeIcon className={`heart ${isLiked ? 'expanded' : ''}`}
+        icon={faHeart}
+        onClick={(e) => {e.stopPropagation(); handleHeartClick()}}
+        ></FontAwesomeIcon>
 
-          <div>
-            <p>{Year}</p>
-          </div>
+        <div>
+          <p>{Year}</p>
+        </div>
 
-          <div>
-            <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
-          </div>
+        <div>
+          <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
+        </div>
 
-          <div>
-            <span>{Type}</span>
-            <h3>{Title}</h3>
-          </div>
-          
-        </button>
+        <div>
+          <span>{Type}</span>
+          <h3>{Title}</h3>
+        </div>
+        
+      </button>
     </div>
   );
 }

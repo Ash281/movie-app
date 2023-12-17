@@ -3,10 +3,11 @@ import SearchBar from '@/components/SearchBar'
 import { MovieProps } from '@/types'
 import { fetchMovies } from '@/utils'
 import { fetchTrending } from '@/utils'
-
+import { SearchProps } from '@/types'
 import { SignedIn } from '@clerk/nextjs'
 
-const Home = async ({ searchParams }) => {
+
+const Home = async ({ searchParams }: any) => {
 
   const movies = await fetchMovies({
     title: searchParams.search

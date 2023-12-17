@@ -2,10 +2,12 @@ import React from 'react';
 import { fetchMovieDetails } from '@/utils';
 import { MoviePageProps } from '@/types';
 
+/* PAGE FOR MOVIE DETAILS */
+
+// params passes in the movieId from the URL as context
 const movieDetailsPage = async ({ params }: MoviePageProps) => {
   const id = params.movieId; 
   const movieDetails = await fetchMovieDetails(id);
-  //console.log(movieDetails.Poster);
   
   //use template strings when referencing a const (`{object}`)
   return (

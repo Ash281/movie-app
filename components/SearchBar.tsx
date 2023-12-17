@@ -6,6 +6,7 @@ import SearchIcon from "./search.png";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+/* SEARCH BAR COMPONENT */
 const SearchBar = () => {
     const router = useRouter();
     
@@ -35,7 +36,7 @@ const SearchBar = () => {
     /* with the use effect hook, every time search term changes
     the handleSearch() method is executed */
 
-    const handleKeyPress = (event) => {
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter'){
             handleSearch();
         }

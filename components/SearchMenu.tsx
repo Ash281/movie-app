@@ -1,5 +1,6 @@
 import React from 'react'
 
+/* SEARCH MENU COMPONENT */
 const SearchMenu = () => {
   return (
     <div className="absolute mt-1 w-full p-2 bg-white shadow-lg

@@ -1,5 +1,5 @@
 import { UserButton } from "@clerk/nextjs";
-
+/* ONBOARDING PAGE FOR NEW USERS */
 async function Page() {
     return (
         <main>

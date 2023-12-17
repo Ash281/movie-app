@@ -1,5 +1,6 @@
 import { SignUp } from "@clerk/nextjs";
  
+/* SIGN UP PAGE FOR NEW USERS */
 export default function Page() {
   return (
   <main 

@@ -7,6 +7,7 @@ import SearchBar from './SearchBar';
 import Header from './Header';
 import { UserButton } from '@clerk/nextjs';
 
+/* NAVBAR COMPONENT */
 const NavBar = () => {
   const [isClient, setIsClient] = useState(false);
 
