@@ -14,12 +14,24 @@ model User {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     clerkId   String @id @map("_id")
+    likedMovies  Like[]  @relation("UserLikes")
 }
 
-model Post {
-    id        String  @id @default(cuid()) @map("_id")
+model Movie {
+    movieId   String  @id @map("_id")
     title     String
-    content   String
+    description String
+    likedByUsers Like[]  @relation("MovieLikes")
+}
+
+model Like {
+    id        String  @id @default(cuid()) @map("_id")
     createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    userId    String
+    movieId   String
+
+    user      User    @relation("UserLikes", fields: [userId], references: [clerkId])
+    movie     Movie   @relation("MovieLikes", fields: [movieId], references: [movieId])
+
+    @@unique([userId, movieId])
 }

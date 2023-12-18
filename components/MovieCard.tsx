@@ -8,6 +8,7 @@ import { useState } from 'react';
 import Heart from 'react-animated-heart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart} from "@fortawesome/free-solid-svg-icons"
+import { useClerk } from '@clerk/clerk-react';
 
 /* MOVIE CARD COMPONENT */
 interface MovieCardProps {
@@ -16,7 +17,8 @@ interface MovieCardProps {
 
 const MovieCard = ({ movie }: MovieCardProps) => {
   const router = useRouter();
-
+  const { user } = useClerk();
+  const clerkId = (user as { id: string } | null)?.id;
 
   const updateURL = (id: string) => {
     const newPathname = `${window.location.origin}/title/${id}`;
@@ -25,9 +27,27 @@ const MovieCard = ({ movie }: MovieCardProps) => {
 
   const [isLiked, setIsLiked] = useState(false);
 
-  const handleHeartClick = () => {
-    setIsLiked(!isLiked);
-    //alert("liked");
+  const handleHeartClick = async () => {
+    console.log('clerkId', clerkId);
+    try {
+      console.log('movie', movie);
+      const response = await fetch('/api/likedMovie', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          movieId: movie.imdbID, 
+          userId: clerkId,
+          isLiked: !isLiked 
+        }) 
+      });
+      setIsLiked(!isLiked);
+    }
+
+    catch (error) {
+      console.log(error);
+    }
   }
   
   const handleMovieClick = (id: string) => {
@@ -35,6 +55,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
   }
  
   const {imdbID, Year, Poster, Type, Title} = movie;
+  
     return (
     <div className='movie' key={imdbID}>
         
@@ -44,7 +65,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
 
         <FontAwesomeIcon className={`heart ${isLiked ? 'expanded' : ''}`}
         icon={faHeart}
-        onClick={(e) => {e.stopPropagation(); handleHeartClick()}}
+        onClick={(e) => {e.stopPropagation(); handleHeartClick();}}
         ></FontAwesomeIcon>
 
         <div>
