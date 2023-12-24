@@ -39,12 +39,20 @@ async function handleWebhookEvent(webhookBody: any) {
     const email_data = userData.email_addresses[0];
     // console.log(email_data.email_address)
     // Convert the data to match your Prisma User model
-    const userToUpdate = {
+    const userToCreate = {
       email: email_data.email_address, // Assuming there's at least one email address
       name: `${userData.first_name} ${userData.last_name}`,
       createdAt: new Date(userData.created_at),
       updatedAt: new Date(userData.updated_at),
       clerkId: userData.id, // Adjust based on your data structure
+    };
+
+    const userToUpdate = {
+      email: email_data.email_address, // Assuming there's at least one email address
+      name: `${userData.first_name} ${userData.last_name}`,
+      createdAt: new Date(userData.created_at),
+      updatedAt: new Date(userData.updated_at),
+       // Adjust based on your data structure
     };
 
     // Update or create user in the database
@@ -57,7 +65,7 @@ async function handleWebhookEvent(webhookBody: any) {
 
     else if (type === 'user.created') {
         await prisma.user.create({
-            data: userToUpdate,
+            data: userToCreate,
         });
         }
   } 

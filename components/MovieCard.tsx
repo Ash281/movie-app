@@ -9,6 +9,7 @@ import Heart from 'react-animated-heart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart} from "@fortawesome/free-solid-svg-icons"
 import { useClerk } from '@clerk/clerk-react';
+import axios from 'axios';
 
 /* MOVIE CARD COMPONENT */
 interface MovieCardProps {
@@ -28,23 +29,18 @@ const MovieCard = ({ movie }: MovieCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleHeartClick = async () => {
+    console.log('isLiked', isLiked);
     console.log('clerkId', clerkId);
+   
     try {
-      console.log('movie', movie);
-      const response = await fetch('/api/likedMovie', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          movieId: movie.imdbID, 
-          userId: clerkId,
-          isLiked: !isLiked 
-        }) 
+      const response = await axios.post('/api/likes', {
+        movieId: movie.imdbID, 
+        userId: clerkId,
+        isLiked: !isLiked 
       });
       setIsLiked(!isLiked);
     }
-
+      
     catch (error) {
       console.log(error);
     }

@@ -57,5 +57,5 @@ export async function POST(req: Request) {
   handleWebhookEvent(JSON.parse(body));
  
   return new Response('', { status: 200 })
-}
- 
+} 
+
