@@ -6,10 +6,13 @@ import SideBar from './SideBar';
 import SearchBar from './SearchBar';
 import Header from './Header';
 import { UserButton } from '@clerk/nextjs';
+import { getLikedMoviesCount }from '@/prisma/getLikeCount';
+import { getClerkId } from '@/utils';
 
 /* NAVBAR COMPONENT */
 const NavBar = () => {
   const [isClient, setIsClient] = useState(false);
+  const clerkId = getClerkId();
 
   useEffect(() => {
     setIsClient(true);
@@ -25,6 +28,7 @@ const NavBar = () => {
           <Header />
           <SideBar />
           <SearchBar />
+          <p className='text-white'>{getLikedMoviesCount(clerkId)}</p>
           <div className='p-3'>
             <UserButton />
           </div> 

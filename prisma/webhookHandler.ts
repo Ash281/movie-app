@@ -33,7 +33,7 @@ async function handleWebhookEvent(webhookBody: any) {
   // console.log(JSON.stringify(webhookBody));
   const type = webhookBody.type
   const data = webhookBody.data;
-  console.log(data)
+  //console.log(data)
   if (type === 'user.updated' || type === 'user.created') {
     const userData: WebhookData = data;
     const email_data = userData.email_addresses[0];
@@ -45,6 +45,10 @@ async function handleWebhookEvent(webhookBody: any) {
       createdAt: new Date(userData.created_at),
       updatedAt: new Date(userData.updated_at),
       clerkId: userData.id, // Adjust based on your data structure
+      likedMovies: {
+        create: [],
+      },
+      likeCount: 0,
     };
 
     const userToUpdate = {
@@ -67,6 +71,7 @@ async function handleWebhookEvent(webhookBody: any) {
         await prisma.user.create({
             data: userToCreate,
         });
+        console.log(userToCreate)
         }
   } 
   else if (type === 'user.deleted') {

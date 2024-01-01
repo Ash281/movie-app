@@ -7,9 +7,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Heart from 'react-animated-heart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart} from "@fortawesome/free-solid-svg-icons"
-import { useClerk } from '@clerk/clerk-react';
+import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { getClerkId } from '@/utils';
 import axios from 'axios';
+import { get } from 'http';
 
 /* MOVIE CARD COMPONENT */
 interface MovieCardProps {
@@ -18,8 +19,7 @@ interface MovieCardProps {
 
 const MovieCard = ({ movie }: MovieCardProps) => {
   const router = useRouter();
-  const { user } = useClerk();
-  const clerkId = (user as { id: string } | null)?.id;
+  const clerkId = getClerkId();
 
   const updateURL = (id: string) => {
     const newPathname = `${window.location.origin}/title/${id}`;

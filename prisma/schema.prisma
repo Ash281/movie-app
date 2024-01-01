@@ -15,6 +15,7 @@ model User {
     updatedAt DateTime @updatedAt
     clerkId   String @id @map("_id")
     likedMovies  Like[]  @relation("UserLikes")
+    likeCount Int
 }
 
 model Movie {
@@ -22,6 +23,7 @@ model Movie {
     title     String
     description String
     likedByUsers Like[]  @relation("MovieLikes")
+    likeCount Int 
 }
 
 model Like {
